@@ -1,0 +1,15 @@
+../Core/Src/EPD_4in2.c:271:13:EPD_4IN2_Reset	8	static
+../Core/Src/EPD_4in2.c:286:13:EPD_4IN2_SendCommand	16	static
+../Core/Src/EPD_4in2.c:299:13:EPD_4IN2_SendData	16	static
+../Core/Src/EPD_4in2.c:311:6:EPD_4IN2_ReadBusy	8	static
+../Core/Src/EPD_4in2.c:326:13:EPD_4IN2_TurnOnDisplay	8	static
+../Core/Src/EPD_4in2.c:337:13:EPD_4IN2_SetLut	16	static
+../Core/Src/EPD_4in2.c:366:13:EPD_4IN2_Partial_SetLut	16	static
+../Core/Src/EPD_4in2.c:396:13:EPD_4IN2_4Gray_lut	16	static
+../Core/Src/EPD_4in2.c:435:6:EPD_4IN2_Init	8	static
+../Core/Src/EPD_4in2.c:475:6:EPD_4IN2_Init_4Gray	8	static
+../Core/Src/EPD_4in2.c:515:6:EPD_4IN2_Clear	24	static
+../Core/Src/EPD_4in2.c:543:6:EPD_4IN2_Display	24	static
+../Core/Src/EPD_4in2.c:559:6:EPD_4IN2_PartialDisplay	40	static
+../Core/Src/EPD_4in2.c:609:6:EPD_4IN2_4GrayDisplay	32	static
+../Core/Src/EPD_4in2.c:700:6:EPD_4IN2_Sleep	8	static
