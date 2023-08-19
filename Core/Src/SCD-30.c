@@ -162,7 +162,7 @@ int16_t scd30_read_serial(char* serial) {
 }
 
 const char* scd30_get_driver_version() {
-    return SCD_DRV_VERSION_STR;
+    return "2.1.1";
 }
 
 uint8_t scd30_get_configured_address() {

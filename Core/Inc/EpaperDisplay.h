@@ -6,4 +6,5 @@
 
 
 
-void love(void);
+void love(uint8_t dataToDisplay);
+void displayData(uint8_t dataArray);

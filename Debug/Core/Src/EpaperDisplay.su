@@ -1,1 +1,2 @@
-../Core/Src/EpaperDisplay.c:5:6:love	32	static
+../Core/Src/EpaperDisplay.c:7:6:love	40	static
+../Core/Src/EpaperDisplay.c:161:6:displayData	32	static

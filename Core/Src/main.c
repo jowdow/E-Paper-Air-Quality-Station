@@ -29,6 +29,7 @@
 /* USER CODE BEGIN Includes */
 #include "EPD_Test.h"
 #include "EpaperDisplay.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,7 +51,7 @@ PUTCHAR_PROTOTYPE
 {
   /* Place your implementation of fputc here */
   /* e.g. write a character to the USART3 and Loop until the end of transmission */
-  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+  //HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
 
   return ch;
 }
@@ -58,6 +59,8 @@ PUTCHAR_PROTOTYPE
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+uint8_t dataArray[32];
 
 /* USER CODE END PD */
 
@@ -86,6 +89,16 @@ void SystemClock_Config(void);
   *For more information please visit: https://github.com/WeActTC/MiniF4-STM32F4x1
   *更多信�?�请访问：https://gitee.com/WeActTC/MiniF4-STM32F4x1
   */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+    if (huart == &huart1) {
+        // Process received data
+        // For example, you can print the received data to a terminal
+
+        // Restart the UART reception
+        HAL_UART_Receive_IT(&huart1, dataArray, 32);
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -117,21 +130,24 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_RTC_Init();
-  MX_USART1_UART_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   //EPD_4in2_test();
-  love();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  HAL_Delay(5000);
+  uint8_t value = 0;
   while (1)
   {
-
-	  HAL_Delay(10000);
+//	  displayData(dataArray[value]);
+//	  HAL_Delay(10000);
+//	  value++;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -187,6 +203,7 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+
 /* USER CODE END 4 */
 
 /**
@@ -197,7 +214,8 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+	HAL_Delay(1000);
   /* USER CODE END Error_Handler_Debug */
 }
 
